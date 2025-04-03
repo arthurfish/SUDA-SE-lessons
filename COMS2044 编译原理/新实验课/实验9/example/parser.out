@@ -1,0 +1,293 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> doc
+Rule 1     doc -> BEGIN LB DOC RB content END LB DOC RB
+Rule 2     content -> title abs sections
+Rule 3     title -> TITLE LB TEXT RB
+Rule 4     abs -> BEGIN LB ABS RB TEXT END LB ABS RB
+Rule 5     sections -> sections section
+Rule 6     sections -> section
+Rule 7     section -> SECTION LB TEXT RB TEXT
+
+Terminals, with rules where they appear
+
+ABS                  : 4 4
+BEGIN                : 1 4
+DOC                  : 1 1
+END                  : 1 4
+LB                   : 1 1 3 4 4 7
+RB                   : 1 1 3 4 4 7
+SECTION              : 7
+TEXT                 : 3 4 7 7
+TITLE                : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+abs                  : 2
+content              : 1
+doc                  : 0
+section              : 5 6
+sections             : 2 5
+title                : 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . doc
+    (1) doc -> . BEGIN LB DOC RB content END LB DOC RB
+
+    BEGIN           shift and go to state 1
+
+    doc                            shift and go to state 2
+
+state 1
+
+    (1) doc -> BEGIN . LB DOC RB content END LB DOC RB
+
+    LB              shift and go to state 3
+
+
+state 2
+
+    (0) S' -> doc .
+
+
+
+state 3
+
+    (1) doc -> BEGIN LB . DOC RB content END LB DOC RB
+
+    DOC             shift and go to state 4
+
+
+state 4
+
+    (1) doc -> BEGIN LB DOC . RB content END LB DOC RB
+
+    RB              shift and go to state 5
+
+
+state 5
+
+    (1) doc -> BEGIN LB DOC RB . content END LB DOC RB
+    (2) content -> . title abs sections
+    (3) title -> . TITLE LB TEXT RB
+
+    TITLE           shift and go to state 7
+
+    content                        shift and go to state 8
+    title                          shift and go to state 6
+
+state 6
+
+    (2) content -> title . abs sections
+    (4) abs -> . BEGIN LB ABS RB TEXT END LB ABS RB
+
+    BEGIN           shift and go to state 9
+
+    abs                            shift and go to state 10
+
+state 7
+
+    (3) title -> TITLE . LB TEXT RB
+
+    LB              shift and go to state 11
+
+
+state 8
+
+    (1) doc -> BEGIN LB DOC RB content . END LB DOC RB
+
+    END             shift and go to state 12
+
+
+state 9
+
+    (4) abs -> BEGIN . LB ABS RB TEXT END LB ABS RB
+
+    LB              shift and go to state 13
+
+
+state 10
+
+    (2) content -> title abs . sections
+    (5) sections -> . sections section
+    (6) sections -> . section
+    (7) section -> . SECTION LB TEXT RB TEXT
+
+    SECTION         shift and go to state 16
+
+    section                        shift and go to state 14
+    sections                       shift and go to state 15
+
+state 11
+
+    (3) title -> TITLE LB . TEXT RB
+
+    TEXT            shift and go to state 17
+
+
+state 12
+
+    (1) doc -> BEGIN LB DOC RB content END . LB DOC RB
+
+    LB              shift and go to state 18
+
+
+state 13
+
+    (4) abs -> BEGIN LB . ABS RB TEXT END LB ABS RB
+
+    ABS             shift and go to state 19
+
+
+state 14
+
+    (6) sections -> section .
+
+    SECTION         reduce using rule 6 (sections -> section .)
+    END             reduce using rule 6 (sections -> section .)
+
+
+state 15
+
+    (2) content -> title abs sections .
+    (5) sections -> sections . section
+    (7) section -> . SECTION LB TEXT RB TEXT
+
+    END             reduce using rule 2 (content -> title abs sections .)
+    SECTION         shift and go to state 16
+
+    section                        shift and go to state 20
+
+state 16
+
+    (7) section -> SECTION . LB TEXT RB TEXT
+
+    LB              shift and go to state 21
+
+
+state 17
+
+    (3) title -> TITLE LB TEXT . RB
+
+    RB              shift and go to state 22
+
+
+state 18
+
+    (1) doc -> BEGIN LB DOC RB content END LB . DOC RB
+
+    DOC             shift and go to state 23
+
+
+state 19
+
+    (4) abs -> BEGIN LB ABS . RB TEXT END LB ABS RB
+
+    RB              shift and go to state 24
+
+
+state 20
+
+    (5) sections -> sections section .
+
+    SECTION         reduce using rule 5 (sections -> sections section .)
+    END             reduce using rule 5 (sections -> sections section .)
+
+
+state 21
+
+    (7) section -> SECTION LB . TEXT RB TEXT
+
+    TEXT            shift and go to state 25
+
+
+state 22
+
+    (3) title -> TITLE LB TEXT RB .
+
+    BEGIN           reduce using rule 3 (title -> TITLE LB TEXT RB .)
+
+
+state 23
+
+    (1) doc -> BEGIN LB DOC RB content END LB DOC . RB
+
+    RB              shift and go to state 26
+
+
+state 24
+
+    (4) abs -> BEGIN LB ABS RB . TEXT END LB ABS RB
+
+    TEXT            shift and go to state 27
+
+
+state 25
+
+    (7) section -> SECTION LB TEXT . RB TEXT
+
+    RB              shift and go to state 28
+
+
+state 26
+
+    (1) doc -> BEGIN LB DOC RB content END LB DOC RB .
+
+    $end            reduce using rule 1 (doc -> BEGIN LB DOC RB content END LB DOC RB .)
+
+
+state 27
+
+    (4) abs -> BEGIN LB ABS RB TEXT . END LB ABS RB
+
+    END             shift and go to state 29
+
+
+state 28
+
+    (7) section -> SECTION LB TEXT RB . TEXT
+
+    TEXT            shift and go to state 30
+
+
+state 29
+
+    (4) abs -> BEGIN LB ABS RB TEXT END . LB ABS RB
+
+    LB              shift and go to state 31
+
+
+state 30
+
+    (7) section -> SECTION LB TEXT RB TEXT .
+
+    SECTION         reduce using rule 7 (section -> SECTION LB TEXT RB TEXT .)
+    END             reduce using rule 7 (section -> SECTION LB TEXT RB TEXT .)
+
+
+state 31
+
+    (4) abs -> BEGIN LB ABS RB TEXT END LB . ABS RB
+
+    ABS             shift and go to state 32
+
+
+state 32
+
+    (4) abs -> BEGIN LB ABS RB TEXT END LB ABS . RB
+
+    RB              shift and go to state 33
+
+
+state 33
+
+    (4) abs -> BEGIN LB ABS RB TEXT END LB ABS RB .
+
+    SECTION         reduce using rule 4 (abs -> BEGIN LB ABS RB TEXT END LB ABS RB .)
+
