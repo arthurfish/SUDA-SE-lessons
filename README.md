@@ -4,7 +4,7 @@
 
 非常欢迎任何形式的贡献！贡献可以通过Github的Pull Request进行，也可以联系我来完成。
 
-我的QQ号是753817285，邮箱地址为[mailto:arthurfish8051@gmail.com](Arthur), 我的博客是 [https://arthurfish.github.io/](青丝|梦雪)
+我的QQ号是753817285，邮箱地址为 [arthurfish8051@gmail.com](mailto:arthurfish8051@gmail.com), 我的博客是 [青丝|梦雪](https://arthurfish.github.io/)
 
 以下是上一任维护的同学的声明。非常感谢他的付出！
 
