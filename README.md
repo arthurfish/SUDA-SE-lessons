@@ -6,6 +6,8 @@
 
 我的QQ号是753817285，邮箱地址为 [arthurfish8051@gmail.com](mailto:arthurfish8051@gmail.com), 我的博客是 [青丝|梦雪](https://arthurfish.github.io/)
 
+对于计科专业的同学，[@f-cktheworld24](https://github.com/f-cktheworld24/)维护着一个关于计科专业资料的Github仓库[SUDA-CS-LESSON](https://github.com/f-cktheworld24/SUDA-CS-LESSON)，里面不仅有包含相关的讲义资料也包含对每门课程的评价，也是个优质的备考信息来源。
+
 以下是上一任维护的同学的声明。非常感谢他的付出！
 
 > 苏州大学软件工程专业（本科）相关课程资料
